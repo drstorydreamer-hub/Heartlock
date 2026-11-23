@@ -24,10 +24,15 @@ const integrer = v => {
   return v;
 };
 const theme = integrer(ctx.window.THEME);
+// Pistes de la playlist (fichiers numérotés) : listées explicitement dans le fichier unique
+{ const P = ctx.window.THEME.playlist || {}, dos = P.dossier ?? 'theme/musique/playlist/', pre = P.prefixe ?? 'piste-', ext = P.extension ?? '.mp3';
+  const pistes = [];
+  for (let i = 1; i <= (P.maximum ?? 60); i++) { const rel = dos + pre + String(i).padStart(2, '0') + ext; if (!fs.existsSync(path.join(R, rel))) { if (i > 7) break; pistes.push(null); continue; } pistes.push(integrer(rel)); }
+  theme.playlist = Object.assign({}, theme.playlist, { fichiers: pistes }); }
 
 // 2. Assembler
 const css = lire('theme/couleurs.css') + '\n' + lire('theme/style.css');
-const corps = `<style>${css}</style>\n<div id="app"></div>\n<script>window.THEME=${JSON.stringify(theme)};</script>\n<script>${lire('jeu/histoire.js')}</script>\n<script>${lire('jeu/moteur.js')}</script>\n`;
+const corps = `<style>${css}</style>\n<div id="app"></div>\n<script>window.THEME=${JSON.stringify(theme)};</script>\n<script>${lire('jeu/histoire.js')}</script>\n<script>${lire('jeu/lecteur.js')}</script>\n<script>${lire('jeu/moteur.js')}</script>\n`;
 const fragment = process.argv.includes('--fragment');
 const titre = 'Qui a embrassé qui ?';
 const html = fragment

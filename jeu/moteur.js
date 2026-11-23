@@ -36,8 +36,8 @@ function musiqueFond(cle){if(!sonPret)return;const F=MU.fond||{};const base=(cle
   if(ancien){ancien.vol(0);setTimeout(()=>ancien.a.pause(),900)}
   if(fondA){fondA.vol(0);if(G.son)fondA.a.play().catch(()=>{})}}
  volFond()}
-function volFond(){if(!fondA)return;if(!G.son){fondA.a.pause();return}if(fondA.a.paused)fondA.a.play().catch(()=>{});fondA.vol(VOL.fond*(baisse>Date.now()?.2:1))}
-function chanson(){if(!G.son)return;baisse=Date.now()+8500;volFond();setTimeout(volFond,8600);
+function volFond(){if(!fondA)return;if(!G.son||lectJoue()){fondA.a.pause();return}if(fondA.a.paused)fondA.a.play().catch(()=>{});fondA.vol(VOL.fond*(baisse>Date.now()?.2:1))}
+function chanson(){if(!G.son)return;if(lectJoue())lectPause();baisse=Date.now()+8500;volFond();setTimeout(volFond,8600);
  if(MU.chanson&&!casse.has(MU.chanson)){if(chansonA){chansonA.a.pause()}chansonA=piste(MU.chanson,false);if(chansonA){chansonA.vol(VOL.chanson);chansonA.a.currentTime=0;chansonA.a.play().catch(()=>motifSynth(true));return}}
  motifSynth(true)}
 function son(cle){if(!G.son)return;const src=MU.sons?.[cle];
@@ -95,7 +95,7 @@ function joue(){sauve();const st=S[G.i];if(!st)return;attendre=null;
  if(st.card)return CARTES[st.card]();
  if(st.fin)return ecranFin();
 }
-function avance(){if($('.mod')||!$('#carnet').hidden)return;if(tapeFin)return tapeFin();if(attendre){ac&&ac.resume();const f=attendre;attendre=null;f()}}
+function avance(){if($('.mod')||!$('#carnet').hidden||!$('#lecteur').hidden)return;if(tapeFin)return tapeFin();if(attendre){ac&&ac.resume();const f=attendre;attendre=null;f()}}
 let toTo;function toast(a,b){let t=$('#toast');clearTimeout(toTo);if(t){t.append(el('p','',b));t.getAnimations().forEach(x=>x.currentTime=500)}else{t=el('div','',`<small>${a}</small><p>${b}</p>`);t.id='toast';$('#app').append(t)}toTo=setTimeout(()=>t.remove(),4400)}
 function majQ(){const Q={quand:'Quand',ou:'Où',qui:'Qui',pourquoi:'Pourquoi'};$('#quatre').innerHTML=Object.keys(Q).map(k=>`<div class="q ${G.ans[k]?'ok':''}">${Q[k]}<b>${G.ans[k]||'?'}</b></div>`).join('')}
 function ouvre(f){$('#toast')?.remove();const o=$('#ov');o.hidden=false;o.innerHTML='';o.scrollTop=0;o.append(f)}
@@ -139,7 +139,7 @@ const PUZ={
  p1(){const f=feuille('Énigme 1','La dernière note');
   f.append(el('p','consigne','La playlist a démarré à 23 h 12. Les chansons se sont enchaînées sans pause, et après la dernière, la musique s’est arrêtée. À quelle heure exacte le baiser a-t-il eu lieu ?'));
   const T=el('div','table-doc');PLAYLIST.forEach((p,i)=>{const l=el('button','ligne',`<span>${i+1}</span><span>${p[0]}<small>${p[2]}</small></span><span class="d">${p[1]}</span>`);l.type='button';l.title='Cocher pendant que tu comptes';l.onclick=()=>l.classList.toggle('coche');T.append(l)});
-  f.append(el('p','sur','Playlist « Ayaan a 25 ans et il est magnifique »'),T);
+  f.append(el('p','sur','Playlist « Ayaan a 25 ans et il est magnifique »'),T);const ec=el('div','actions');ec.append(bouton('▶ Écouter cette playlist',lecteur,'indice'));f.append(ec);
   let h=23,m=12;const C=el('div','horloge','<div class="cad"><div class="pm"><button type="button" data-a="h" aria-label="Changer l’heure">±</button></div><output id="oh">23</output></div><span class="sep">:</span><div class="cad"><div class="pm"><button type="button" data-a="-10">-10</button><button type="button" data-a="-1">-1</button><button type="button" data-a="1">+1</button><button type="button" data-a="10">+10</button></div><output id="om">12</output></div>');
   C.onclick=e=>{const a=e.target.dataset?.a;if(!a)return;if(a==='h')h=h===23?0:23;else m=(m+ +a+60)%60;C.querySelector('#oh').textContent=String(h).padStart(2,'0');C.querySelector('#om').textContent=String(m).padStart(2,'0')};f.append(C);
   const a=el('div','actions');const ind=aide(f,["Le baiser arrive juste après la toute dernière note. Il te faut donc la durée totale de la playlist.","Additionne d’abord les minutes, puis les secondes. Les secondes font plusieurs minutes de plus.","32 minutes + 120 secondes. Ajoute ce total à 23 h 12."]);
@@ -242,7 +242,7 @@ function rendC(){document.querySelectorAll('.onglets button').forEach(b=>b.setAt
 function demande(q,oui){const m=el('div','mod',`<div><p>${q}</p><div class="actions" id="mact"></div></div>`);$('#app').append(m);m.querySelector('#mact').append(bouton('Oui',()=>{m.remove();oui()}),bouton('Non',()=>m.remove(),'btn sec'))}
 function reset(){try{localStorage.removeItem(CLE)}catch(e){}const son=G.son;G=neuf();G.son=son;bgCour=null;$('#fin').hidden=true;ferme();document.querySelectorAll('[data-baiser]').forEach(e=>e.remove());$('#hud').hidden=true;$('#dlg').hidden=true;videCast();accueil()}
 function majSon(){const B=$('#bSon');B.innerHTML=(G.son?'♪':'♪̸')+`<span>${G.son?'Son : oui':'Son : non'}</span>`;B.setAttribute('aria-label',G.son?'Couper le son':'Activer le son');$('#bSon2')&&($('#bSon2').textContent=G.son?'Son activé':'Son coupé')}
-function bascSon(){G.son=!G.son;if(G.son)initSon();volPluie();volFond();if(!G.son&&chansonA)chansonA.a.pause();majSon();sauve()}
+function bascSon(){G.son=!G.son;if(G.son)initSon();else lectPause();volPluie();volFond();if(!G.son&&chansonA)chansonA.a.pause();majSon();sauve()}
 
 /* --- Écran titre --- */
 function accueil(){const r=charge();decor({bg:'ville',rain:.75});const Tt=$('#titre');Tt.hidden=false;
@@ -251,17 +251,17 @@ function accueil(){const r=charge();decor({bg:'ville',rain:.75});const Tt=$('#ti
  <div class="rangee" id="tb"></div><p class="meta">Enquête narrative · 5 énigmes · 20 à 30 minutes · Mets le son si tu peux</p></div>`;
  const b=$('#tb');const go=(sv)=>{Tt.hidden=true;initSon();ac&&ac.resume();if(sv){G=sv;majQ();$('#hud').hidden=!S.slice(0,G.i).some(s=>s.hud);const prev=[...S.slice(0,G.i+1)].reverse().find(s=>s.bg);if(prev)decor(prev);majSon();joue()}else{const so=G.son;G=neuf();G.son=so;majQ();joue()}};
  if(r)b.append(bouton('Reprendre l’enquête',()=>go(r)));b.append(bouton(r?'Nouvelle enquête':'Ouvrir l’enquête',()=>r?demande('Effacer ta partie en cours ?',()=>{try{localStorage.removeItem(CLE)}catch(e){}go(null)}):go(null),r?'btn sec':'btn'));
- const s=bouton('',bascSon,'btn sec');s.id='bSon2';b.append(s);majSon()}
+ const s=bouton('',bascSon,'btn sec');s.id='bSon2';b.append(s,boutonPlaylist('btn sec'));majSon()}
 
 function start(data){
  $('#app').innerHTML=`<div id="scene2"></div><div id="scene"></div><div id="vignette"></div><div id="cast"></div><canvas id="rain" aria-hidden="true"></canvas>
  <div id="dlg" hidden role="button" tabindex="0" aria-label="Continuer"><div id="nom"></div><p id="txt" aria-live="polite"></p><span id="suite" hidden>Continuer ▸</span></div>
  <div id="ov" hidden></div><div id="chap" hidden></div>
- <div id="hud" hidden><button class="hbtn" id="bCarnet" type="button">Carnet</button><div id="quatre"></div><button class="hbtn" id="bSon" type="button">Son</button><button class="hbtn" id="bMenu" type="button" aria-label="Menu">Menu</button></div>
+ <div id="hud" hidden><button class="hbtn" id="bCarnet" type="button">Carnet</button><div id="quatre"></div><span id="hPl"></span><button class="hbtn" id="bSon" type="button">Son</button><button class="hbtn" id="bMenu" type="button" aria-label="Menu">Menu</button></div>
  <aside id="carnet" hidden aria-label="Carnet du détective"><header><h2>Mon carnet</h2><button class="indice" id="cF" type="button">Fermer</button></header><div class="onglets"><button type="button" data-o="sus">Suspects</button><button type="button" data-o="ind">Indices</button><button type="button" data-o="log">Répliques</button></div><div id="cc"></div></aside>
  <div id="titre" hidden></div><div id="fin" hidden></div>`;
  Object.keys(PERS).forEach(id=>{PERS[id].c=T.personnages?.[id]?.couleur||'#f8a8c6'});precharge();
- pluie();majQ();
+ pluie();majQ();lectInstaller();$('#hPl').replaceWith(boutonPlaylist('hbtn'));
  $('#dlg').onclick=avance;$('#chap').onclick=avance;$('#scene').onclick=avance;
  addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&e.target.tagName!=='BUTTON'&&!e.target.classList?.contains('spot')){const zz=$('.tel')||$('[data-baiser]');if(zz&&$('#carnet').hidden){e.preventDefault();return zz.click()}if(!$('#ov').hidden||!$('#titre').hidden)return;e.preventDefault();avance()}if(e.key==='Escape'){$('#carnet').hidden=true}});
  $('#bCarnet').onclick=carnet;$('#cF').onclick=()=>$('#carnet').hidden=true;$('#bSon').onclick=bascSon;

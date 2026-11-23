@@ -157,6 +157,29 @@ window.THEME = {
     }
   },
 
+  /* ---------- Playlist d'Ayaan (le lecteur de musique du jeu) ----------
+     Dépose tes chansons dans le dossier ci-dessous, avec des noms numérotés :
+       piste-01.mp3  Minuit à Silom
+       piste-02.mp3  Mon ex est mon voisin
+       piste-03.mp3  Bruit du riz qui cuit (version longue)
+       piste-04.mp3  Drame sur Sukhumvit
+       piste-05.mp3  Je ne te regarde pas (je te regarde)
+       piste-06.mp3  Tuk-tuk de mon cœur
+       piste-07.mp3  Sous mon parapluie
+     Tu peux en ajouter d'autres à la suite (piste-08.mp3, piste-09.mp3…) :
+     elles apparaissent toutes seules dans le lecteur, sans rien modifier ici.
+     Pour leur donner un titre, remplis « titres » (sinon elles s'appellent « Piste 8 »…).
+     Les titres des sept premières viennent de l'histoire (énigme 1). */
+  playlist: {
+    dossier: 'theme/musique/playlist/',
+    prefixe: 'piste-',
+    extension: '.mp3',
+    volume: 0.85,
+    titres: {
+      // 8: 'Ma chanson préférée',
+    }
+  },
+
   /* ---------- Musique et sons ----------
      Le son démarre quand on clique sur « Ouvrir l'enquête » (les navigateurs
      interdisent le son avant un premier geste). */

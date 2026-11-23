@@ -11,6 +11,7 @@ Tout ce qui se voit et s'entend est dans ce dossier `theme/`. L'histoire et les 
 | Photo du chaton, carnet d'Ayaan | `illustrations/` |
 | Vidéo de KN-01 et scène du baiser | `video/` et `theme.js` |
 | Musique de fond, pluie, chanson, bruitages | `musique/` et `theme.js` |
+| Chansons de la playlist d'Ayaan (le lecteur) | `musique/playlist/` |
 | Mise en forme détaillée (marges, arrondis, tailles) | `style.css` |
 
 ## Méthode 1 : remplacer un fichier
@@ -50,13 +51,36 @@ Les chemins partent du dossier qui contient `index.html`. Ne supprime ni les vir
 - Les volumes se règlent dans `musique.volumes`, entre 0 (muet) et 1 (fort).
 - Si un fichier manque ou ne se lit pas, le jeu joue un petit son de secours à la place.
 
+## La playlist d'Ayaan
+
+Le jeu contient un vrai lecteur de musique, avec les sept chansons de l'énigme 1. On l'ouvre avec le bouton **Playlist** : sur l'écran titre, dans la barre du haut pendant la partie, ou depuis l'énigme 1.
+
+Pour mettre tes chansons, **dépose les fichiers dans `musique/playlist/`** avec ces noms :
+
+| Fichier | Chanson |
+| --- | --- |
+| `piste-01.mp3` | Minuit à Silom |
+| `piste-02.mp3` | Mon ex est mon voisin |
+| `piste-03.mp3` | Bruit du riz qui cuit (version longue) |
+| `piste-04.mp3` | Drame sur Sukhumvit |
+| `piste-05.mp3` | Je ne te regarde pas (je te regarde) |
+| `piste-06.mp3` | Tuk-tuk de mon cœur |
+| `piste-07.mp3` | Sous mon parapluie |
+
+- Les fichiers fournis sont des maquettes instrumentales d'environ 40 secondes : remplace-les par les tiens, avec le même nom.
+- **Pour ajouter d'autres chansons**, continue la numérotation : `piste-08.mp3`, `piste-09.mp3`… Elles apparaissent toutes seules dans le lecteur. Pour leur donner un titre, remplis `playlist.titres` dans `theme.js`, par exemple `8: 'Ma chanson préférée'`. Sans titre, elles s'appellent « Piste 8 », « Piste 9 »… La numérotation doit se suivre : s'il manque `piste-09.mp3`, les suivantes ne sont pas lues.
+- Si une des sept premières manque, elle reste dans la liste avec la mention « Fichier à ajouter ».
+- Pendant que la playlist joue, la musique de fond du jeu se met en pause. Elle reprend quand tu arrêtes la playlist.
+- Les titres et les noms « Ajouté par » des sept premières chansons viennent de l'histoire (énigme 1) : ils ne changent pas avec les fichiers.
+
 ## Revenir aux images et sons d'origine
 
 Ils sont dessinés et composés par du code. Pour les régénérer :
 
 ```bash
 node outils/generer-design.js      # images
-python3 outils/generer-musique.py  # musiques (nécessite numpy et ffmpeg)
+python3 outils/generer-musique.py  # musique de fond, pluie, bruitages (nécessite numpy et ffmpeg)
+python3 outils/generer-playlist.py # les 7 chansons de démonstration de la playlist
 ```
 
 Ces commandes écrasent les fichiers de même nom : mets d'abord tes propres fichiers ailleurs, ou sous un autre nom.

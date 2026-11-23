@@ -19,6 +19,10 @@ Un petit jeu narratif romantique, entièrement en français, jouable directement
 
 Sur téléphone, « Ajouter à l'écran d'accueil » lance le jeu en plein écran, comme une application.
 
+## La playlist d'Ayaan
+
+Le jeu contient un vrai lecteur de musique avec les sept chansons de la soirée (bouton **Playlist**). Pour y mettre tes chansons, dépose-les dans `theme/musique/playlist/` sous les noms `piste-01.mp3` à `piste-07.mp3`. Les pistes suivantes (`piste-08.mp3`, `piste-09.mp3`…) sont ajoutées automatiquement. Le détail est dans [`theme/LISEZ-MOI.md`](theme/LISEZ-MOI.md#la-playlist-dayaan).
+
 ## Changer le design, les personnages ou la musique
 
 Tout le visuel et le son sont des fichiers séparés dans le dossier [`theme/`](theme/). On les remplace sans toucher au jeu. Le mode d'emploi est dans [`theme/LISEZ-MOI.md`](theme/LISEZ-MOI.md).
@@ -37,15 +41,20 @@ theme/                      TOUT LE DESIGN
   illustrations/            Photo du chaton, carnet d'Ayaan
   video/                    Calques de la vidéo de KN-01 et de la scène du baiser
   musique/                  Musique de fond, pluie, chanson, bruitages
+  musique/playlist/         Les chansons du lecteur : piste-01.mp3, piste-02.mp3…
 jeu/
   histoire.js               Le scénario : scènes, répliques, données des énigmes
+  lecteur.js                Le lecteur de la playlist
   moteur.js                 Le fonctionnement du jeu
 outils/
   generer-design.js         Régénère les images d'origine
-  generer-musique.py        Régénère les musiques d'origine
+  generer-musique.py        Régénère la musique de fond, la pluie et les bruitages
+  generer-playlist.py       Régénère les 7 chansons de démonstration
+  synthe.py                 Outils de synthèse audio communs
   fichier-unique.js         Assemble tout le jeu en un seul fichier HTML (dist/)
   dessins.js                Les dessins d'origine, en code
 tests/partie-complete.js    Joue toute l'enquête automatiquement
+tests/playlist.js           Vérifie le lecteur de la playlist
 assets/                     Visuel de couverture
 ```
 
@@ -70,4 +79,5 @@ Ce test joue toute l'enquête au format ordinateur puis au format téléphone, e
 npm install playwright
 npx playwright install chromium
 node tests/partie-complete.js
+node tests/playlist.js
 ```
