@@ -5,8 +5,8 @@
 /* Les six personnages : prénom et petite fiche du carnet.
    Leurs images et leur couleur se règlent dans theme/theme.js. */
 const PERS={
- kinnat:{nom:'Kinnat',info:'Stagiaire avocat, maniaque, sarcastique.'},
- rayn:{nom:'Rayn',info:'Solaire, bavard, gaffeur. Oublie toujours son parapluie.'},
+ kinnat:{nom:'Lee Kinnat',info:'Stagiaire avocat, maniaque, sarcastique.'},
+ rayn:{nom:'Rayn Nathapoon',info:'Solaire, bavard, gaffeur. Oublie toujours son parapluie.'},
  vega:{nom:'Vega',info:'Ténébreux. Parle de sa vie comme d’une tragédie.'},
  ayaan:{nom:'Ayaan',info:'La star de la fête. Possède un micro-jouet et s’en sert.'},
  sarawin:{nom:'Sarawin',info:'Guitariste. Trois mots par heure, un sourcil.'},
