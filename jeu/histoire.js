@@ -7,10 +7,10 @@
 const PERS={
  kinnat:{nom:'Lee Kinnat',info:'Stagiaire avocat, maniaque, sarcastique.'},
  rayn:{nom:'Rayn Nathapoon',info:'Solaire, bavard, gaffeur. Oublie toujours son parapluie.'},
- vega:{nom:'Vega',info:'Ténébreux. Parle de sa vie comme d’une tragédie.'},
- ayaan:{nom:'Ayaan',info:'La star de la fête. Possède un micro-jouet et s’en sert.'},
- sarawin:{nom:'Sarawin',info:'Guitariste. Trois mots par heure, un sourcil.'},
- tinn:{nom:'Tinn',info:'Nerveux, adorable, incapable de mentir.'}
+ vega:{nom:'Vega Jones',info:'Ténébreux. Parle de sa vie comme d’une tragédie.'},
+ ayaan:{nom:'Ayaan Jaal',info:'La star de la fête. Possède un micro-jouet et s’en sert.'},
+ sarawin:{nom:'Kyle Sarawin',info:'Guitariste. Trois mots par heure, un sourcil.'},
+ tinn:{nom:'Tinn Ming',info:'Nerveux, adorable, incapable de mentir.'}
 };
 
 const n=t=>({n:t}), d=(s,e,t)=>({s,e,t});

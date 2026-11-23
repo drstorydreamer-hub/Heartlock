@@ -44,45 +44,45 @@ window.THEME = {
     vega: {
       couleur: '#c3b4e8',
       expressions: {
-        neutre:  'theme/personnages/vega/neutre.svg',
-        rire:    'theme/personnages/vega/rire.svg',
-        surpris: 'theme/personnages/vega/surpris.svg',
-        timide:  'theme/personnages/vega/timide.svg',
-        agace:   'theme/personnages/vega/agace.svg',
-        emu:     'theme/personnages/vega/emu.svg'
+        neutre:  'theme/personnages/vega/neutre.png',
+        rire:    'theme/personnages/vega/rire.png',
+        surpris: 'theme/personnages/vega/surpris.png',
+        timide:  'theme/personnages/vega/timide.png',
+        agace:   'theme/personnages/vega/agace.png',
+        emu:     'theme/personnages/vega/emu.png'
       }
     },
     ayaan: {
       couleur: '#f3a6a2',
       expressions: {
-        neutre:  'theme/personnages/ayaan/neutre.svg',
-        rire:    'theme/personnages/ayaan/rire.svg',
-        surpris: 'theme/personnages/ayaan/surpris.svg',
-        timide:  'theme/personnages/ayaan/timide.svg',
-        agace:   'theme/personnages/ayaan/agace.svg',
-        emu:     'theme/personnages/ayaan/emu.svg'
+        neutre:  'theme/personnages/ayaan/neutre.png',
+        rire:    'theme/personnages/ayaan/rire.png',
+        surpris: 'theme/personnages/ayaan/surpris.png',
+        timide:  'theme/personnages/ayaan/timide.png',
+        agace:   'theme/personnages/ayaan/agace.png',
+        emu:     'theme/personnages/ayaan/emu.png'
       }
     },
     sarawin: {
       couleur: '#86b86b',
       expressions: {
-        neutre:  'theme/personnages/sarawin/neutre.svg',
-        rire:    'theme/personnages/sarawin/rire.svg',
-        surpris: 'theme/personnages/sarawin/surpris.svg',
-        timide:  'theme/personnages/sarawin/timide.svg',
-        agace:   'theme/personnages/sarawin/agace.svg',
-        emu:     'theme/personnages/sarawin/emu.svg'
+        neutre:  'theme/personnages/sarawin/neutre.png',
+        rire:    'theme/personnages/sarawin/rire.png',
+        surpris: 'theme/personnages/sarawin/surpris.png',
+        timide:  'theme/personnages/sarawin/timide.png',
+        agace:   'theme/personnages/sarawin/agace.png',
+        emu:     'theme/personnages/sarawin/emu.png'
       }
     },
     tinn: {
       couleur: '#f2b77a',
       expressions: {
-        neutre:  'theme/personnages/tinn/neutre.svg',
-        rire:    'theme/personnages/tinn/rire.svg',
-        surpris: 'theme/personnages/tinn/surpris.svg',
-        timide:  'theme/personnages/tinn/timide.svg',
-        agace:   'theme/personnages/tinn/agace.svg',
-        emu:     'theme/personnages/tinn/emu.svg'
+        neutre:  'theme/personnages/tinn/neutre.png',
+        rire:    'theme/personnages/tinn/rire.png',
+        surpris: 'theme/personnages/tinn/surpris.png',
+        timide:  'theme/personnages/tinn/timide.png',
+        agace:   'theme/personnages/tinn/agace.png',
+        emu:     'theme/personnages/tinn/emu.png'
       }
     }
   },
@@ -142,14 +142,14 @@ window.THEME = {
      Tu peux aussi remplacer la scène par une vraie vidéo : indique un fichier .mp4 dans « fichier ». */
   video: {
     nuit: {
-      fichier: null,
+      fichier: 'theme/video/BaiserVole.mp4',
       fond:   'theme/video/nuit-fond.svg',
       gauche: 'theme/video/nuit-gauche.svg',
       droite: 'theme/video/nuit-droite.svg',
       main:   'theme/video/nuit-main.svg'
     },
     baiser: {
-      fichier: null,
+      fichier: 'theme/video/BaiserVole.mp4',
       fond:   'theme/video/baiser-fond.svg',
       gauche: 'theme/video/baiser-gauche.svg',
       droite: 'theme/video/baiser-droite.svg',
@@ -159,8 +159,8 @@ window.THEME = {
 
   /* ---------- Playlist d'Ayaan (le lecteur de musique du jeu) ----------
      Dépose tes chansons dans le dossier ci-dessous, avec des noms numérotés :
-       piste-01.mp3  Minuit à Silom
-       piste-02.mp3  Mon ex est mon voisin
+       piste-01.mp3  Day Dreaming
+       piste-02.mp3  Take this moment
        piste-03.mp3  Bruit du riz qui cuit (version longue)
        piste-04.mp3  Drame sur Sukhumvit
        piste-05.mp3  Je ne te regarde pas (je te regarde)
