@@ -22,10 +22,10 @@ window.THEME = {
     kinnat: {
       couleur: '#9fd3e6',
       expressions: {
-        neutre:  'theme/personnages/kinnat/neutre.svg',
-        rire:    'theme/personnages/kinnat/rire.svg',
+        neutre:  'theme/personnages/kinnat/neutre.png',
+        rire:    'theme/personnages/kinnat/rire.png',
         surpris: 'theme/personnages/kinnat/surpris.svg',
-        timide:  'theme/personnages/kinnat/timide.svg',
+        timide:  'theme/personnages/kinnat/timide.png',
         agace:   'theme/personnages/kinnat/agace.svg',
         emu:     'theme/personnages/kinnat/emu.svg'
       }
