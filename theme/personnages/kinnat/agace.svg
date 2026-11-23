@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="360" viewBox="0 0 300 360" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <path d="M90 140C84 76 118 52 150 52s66 24 60 88l4 26h-128z" fill="#141a26"/>
+ <path d="M18 360c4-70 44-110 96-120h72c52 10 92 50 96 120z" fill="#1d2432"/>
+ <path d="M18 360c4-70 44-110 96-120h72c52 10 92 50 96 120" fill="none" stroke="#54708a" stroke-width="3"/>
+ <path d="M84 262c-14-30 8-56 30-60h72c22 4 44 30 30 60-34 34-98 34-132 0z" fill="#2a3346"/>
+ <path d="M122 214h56v30c-20 26-36 26-56 0z" fill="#e9c19b"/><path d="M122 222q28 22 56 0v8q-28 18-56 0z" fill="#000" opacity=".14"/>
+ <path d="M130 268v34M170 268v34" stroke="#c9d6dd" stroke-width="3" stroke-linecap="round"/>
+ <path d="M104 150C104 88 196 88 196 150" fill="#e9c19b"/>
+ <ellipse cx="90" cy="156" rx="10" ry="16" fill="#e9c19b"/><ellipse cx="210" cy="156" rx="10" ry="16" fill="#e9c19b"/>
+ <path d="M90 130C90 66 210 66 210 130c0 56-34 96-60 98-26-2-60-42-60-98z" fill="#e9c19b"/>
+ <path d="M108 150h28" stroke="#1a1414" stroke-width="4" stroke-linecap="round"/><path d="M112 151a10 8 0 0 0 20 0z" fill="#3a2a20"/><path d="M164 150h28" stroke="#1a1414" stroke-width="4" stroke-linecap="round"/><path d="M168 151a10 8 0 0 0 20 0z" fill="#3a2a20"/>
+ <path d="M106 128.2L140 136" stroke="#17120f" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+ <path d="M160 136L194 128.2" stroke="#17120f" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+ <path d="M150 170l-4 12h7" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M136 197q14 -6 28 0" fill="none" stroke="#6a2f25" stroke-width="3.5" stroke-linecap="round"/><path d="M90 142C82 62 150 40 196 60c24 12 20 56 14 84-6-24-18-40-34-48-34 12-58 8-72 14-8 8-12 18-14 32z" fill="#141a26"/><path d="M122 66C150 56 178 58 196 72" fill="none" stroke="#39506a" stroke-width="4" stroke-linecap="round"/><g fill="rgba(200,230,240,.1)" stroke="#27313f" stroke-width="3.5"><rect x="104" y="136" width="42" height="32" rx="5"/><rect x="154" y="136" width="42" height="32" rx="5"/></g><path d="M146 148h8" stroke="#27313f" stroke-width="3.5"/></svg>

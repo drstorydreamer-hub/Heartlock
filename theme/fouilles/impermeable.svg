@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="560" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg"><title>Imperméable jaune</title><rect width="800" height="560" fill="#fde6ef"/><rect y="30" width="800" height="12" fill="#e3b49a"/>
+ <g transform="translate(400 40)"><path d="M-160 30C-200 44-214 150-222 360-224 440-210 500-204 520H204C210 500 224 440 222 360 214 150 200 44 160 30 110 4-110 4-160 30z" fill="#f4c430"/><path d="M-96 26c50 40 142 40 192 0l-22-30H-74z" fill="#d9a915"/><path d="M0 40V520" stroke="#b98e10" stroke-width="6"/><circle cx="-14" cy="110" r="8" fill="#7a5608"/><circle cx="-14" cy="210" r="8" fill="#7a5608"/><circle cx="-14" cy="310" r="8" fill="#7a5608"/><circle cx="-14" cy="410" r="8" fill="#7a5608"/></g>
+ <g><rect x="220" y="330" width="150" height="130" fill="#e2b41d" stroke="#b98e10" stroke-width="5"/><path d="M220 330h150v26H220z" fill="#c99d15"/></g>
+ <g><rect x="430" y="330" width="150" height="130" fill="#e2b41d" stroke="#b98e10" stroke-width="5"/><path d="M430 330h150v26H430z" fill="#c99d15"/></g>
+ <g><path d="M420 150h96v70h-96z" fill="#d9a915" stroke="#b98e10" stroke-width="4"/><path d="M420 150h96" stroke="#7a5608" stroke-width="7"/></g></svg>

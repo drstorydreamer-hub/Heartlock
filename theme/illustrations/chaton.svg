@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="460" height="340" viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg"><title>Khao Niao</title><rect width="460" height="340" fill="#ede2f4"/><rect y="250" width="460" height="90" fill="#dccfe6"/>
+ <ellipse cx="230" cy="274" rx="130" ry="42" fill="#4a97e6"/><ellipse cx="230" cy="260" rx="104" ry="28" fill="#2c6cb0"/>
+ <ellipse cx="230" cy="226" rx="66" ry="52" fill="#f7f5ef"/><circle cx="230" cy="142" r="56" fill="#f7f5ef"/><path d="M186 112l4-54 38 32zM274 112q40-28 14-50l-34 24z" fill="#f7f5ef"/><path d="M196 102l3-28 19 17z" fill="#efb5ae"/>
+ <circle cx="208" cy="142" r="11" fill="#1d2a33"/><circle cx="252" cy="142" r="11" fill="#1d2a33"/><circle cx="212" cy="138" r="4" fill="#fff"/><circle cx="256" cy="138" r="4" fill="#fff"/>
+ <path d="M224 160l6 6 6-6zM230 166q-8 10-16 4M230 166q8 10 16 4" fill="#efb5ae" stroke="#a0756f" stroke-width="2"/><path d="M162 158l-34-6M162 170l-36 6M298 158l34-6M298 170l36 6" stroke="#c3c8c8" stroke-width="2.5"/></svg>

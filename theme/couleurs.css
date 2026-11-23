@@ -1,0 +1,22 @@
+/* ==========================================================================
+   COULEURS ET POLICES DE L'INTERFACE
+   Change les valeurs ci-dessous pour changer toute l'ambiance du jeu.
+   Les polices viennent de Google Fonts (https://fonts.google.com) :
+   pour en changer, remplace l'adresse de la ligne @import et les noms plus bas.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Pacifico&family=Patrick+Hand&display=swap');
+
+:root{
+  /* --nuit : fond de la page · --imper : couleur principale (boutons, accents)
+     --papier : fiches et dialogues · --encre : texte · --grille : pois du papier */
+  color-scheme:light;
+  --nuit:#fdeef5; --nuit2:#f7dcea; --pluie:#9c7ac6;
+  --imper:#ec5f97; --imper2:#f8a8c6; --pandan:#6fc4a0; --gamelle:#8fb4f0; --rose:#b67ad6; --alerte:#e86f7c; --peche:#ffd8c2;
+  --papier:#fffafc; --papier2:#f9e6ef; --encre:#5a2b57; --encre2:#9b7095; --grille:#f6cfe0; --lilas:#ece2fb; --menthe:#dff5ec;
+  --ombre:0 14px 34px rgba(170,70,130,.18);
+  --titre:"Fredoka","Nunito","Segoe UI",system-ui,sans-serif;
+  --logo:"Pacifico","Fredoka",cursive;
+  --texte:"Nunito","Segoe UI",system-ui,sans-serif;
+  --main:"Patrick Hand","Comic Sans MS","Segoe Print",cursive;
+  --pois:radial-gradient(var(--grille) 1.4px,transparent 1.6px) 0 0/18px 18px;
+}

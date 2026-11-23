@@ -15,52 +15,59 @@ Un petit jeu narratif romantique, entièrement en français, jouable directement
 ## Jouer
 
 - **En ligne :** https://drstorydreamer-hub.github.io/Heartlock/
-- **En local :** ouvre simplement `index.html` dans un navigateur. Aucun serveur ni installation n'est nécessaire.
+- **Sur ton ordinateur :** ouvre `index.html` dans un navigateur. Aucune installation n'est nécessaire.
 
-Sur téléphone, le jeu s'affiche en plein écran. Sur iPhone comme sur Android, « Ajouter à l'écran d'accueil » le lance comme une application.
+Sur téléphone, « Ajouter à l'écran d'accueil » lance le jeu en plein écran, comme une application.
 
-## Ce qu'il y a dans le jeu
+## Changer le design, les personnages ou la musique
 
-- Des scènes illustrées (salon, cuisine, entrée, escalier C, supérette) dessinées en SVG, sans aucune image externe.
-- Six personnages aux expressions qui changent selon les répliques.
-- Des dialogues qui s'écrivent en direct, une discussion de groupe sur téléphone et la vidéo de KN-01 à regarder.
-- Cinq énigmes interactives : la playlist et l'heure du baiser, le message chiffré de l'imperméable, la confrontation des alibis, les messages effacés, et les post-its du frigo.
-- Deux fouilles, une accusation finale avec preuves, puis la révélation complète.
-- Un carnet de détective (suspects à barrer, indices, répliques), des indices progressifs, une pluie animée et une petite musique synthétisée sur place.
-- Une sauvegarde automatique de la partie dans le navigateur.
+Tout le visuel et le son sont des fichiers séparés dans le dossier [`theme/`](theme/). On les remplace sans toucher au jeu. Le mode d'emploi est dans [`theme/LISEZ-MOI.md`](theme/LISEZ-MOI.md).
 
 ## Structure
 
 ```
-assets/             Visuel de couverture
-index.html          Le jeu assemblé, prêt à être servi (fichier unique)
-build.sh            Assemble src/ en index.html
-src/style.css       Design : palette pastel, mise en page, version téléphone
-src/art.js          Illustrations : personnages, décors, palette des scènes
-src/story.js        Scénario : toutes les scènes, répliques et données des énigmes
-src/engine.js       Moteur : déroulé, énigmes, carnet, son, sauvegarde
-tests/              Partie complète automatisée (Playwright)
+index.html                  Page du jeu
+theme/                      TOUT LE DESIGN
+  theme.js                  La liste des images et des sons utilisés (chemins, volumes, zones de fouille)
+  couleurs.css              Couleurs et polices de l'interface
+  style.css                 Mise en forme détaillée
+  personnages/<prénom>/     6 expressions par personnage
+  decors/                   Décors plein écran
+  fouilles/                 Images à fouiller
+  illustrations/            Photo du chaton, carnet d'Ayaan
+  video/                    Calques de la vidéo de KN-01 et de la scène du baiser
+  musique/                  Musique de fond, pluie, chanson, bruitages
+jeu/
+  histoire.js               Le scénario : scènes, répliques, données des énigmes
+  moteur.js                 Le fonctionnement du jeu
+outils/
+  generer-design.js         Régénère les images d'origine
+  generer-musique.py        Régénère les musiques d'origine
+  fichier-unique.js         Assemble tout le jeu en un seul fichier HTML (dist/)
+  dessins.js                Les dessins d'origine, en code
+tests/partie-complete.js    Joue toute l'enquête automatiquement
+assets/                     Visuel de couverture
 ```
 
-Après une modification dans `src/`, relance :
+## Mettre la démo à jour
+
+La démo est servie directement depuis la branche `main` par GitHub Pages : **Settings → Pages → Deploy from a branch → main, / (root)**.
+Chaque modification envoyée sur `main` est en ligne une à deux minutes après.
+
+## Un seul fichier à partager
 
 ```bash
-bash build.sh
+node outils/fichier-unique.js
 ```
+
+Ce script crée `dist/heartlock.html` : le jeu complet avec ses images et ses musiques dans un seul fichier, qu'on peut envoyer et ouvrir sans connexion (sauf pour les polices).
 
 ## Tester
 
-Le test joue toute l'enquête, au format ordinateur puis au format téléphone, et enregistre des captures dans `tests/captures/`.
+Ce test joue toute l'enquête au format ordinateur puis au format téléphone, et enregistre des captures dans `tests/captures/` :
 
 ```bash
 npm install playwright
 npx playwright install chromium
 node tests/partie-complete.js
 ```
-
-## Publier la démo avec GitHub Pages
-
-La démo est publiée automatiquement par `.github/workflows/pages.yml` à chaque envoi sur `main`.
-Il faut l'activer une seule fois : **Settings → Pages → Build and deployment → Source : GitHub Actions**.
-
-Les polices (Fredoka, Nunito, Pacifico, Patrick Hand) sont chargées depuis Google Fonts. Sans connexion, le jeu reste jouable avec les polices du système.
