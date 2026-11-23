@@ -24,21 +24,21 @@ window.THEME = {
       expressions: {
         neutre:  'theme/personnages/kinnat/neutre.png',
         rire:    'theme/personnages/kinnat/rire.png',
-        surpris: 'theme/personnages/kinnat/surpris.svg',
+        surpris: 'theme/personnages/kinnat/surpris.png',
         timide:  'theme/personnages/kinnat/timide.png',
-        agace:   'theme/personnages/kinnat/agace.svg',
-        emu:     'theme/personnages/kinnat/emu.svg'
+        agace:   'theme/personnages/kinnat/agace.png',
+        emu:     'theme/personnages/kinnat/emu.png'
       }
     },
     rayn: {
       couleur: '#f4c430',
       expressions: {
-        neutre:  'theme/personnages/rayn/neutre.svg',
-        rire:    'theme/personnages/rayn/rire.svg',
-        surpris: 'theme/personnages/rayn/surpris.svg',
-        timide:  'theme/personnages/rayn/timide.svg',
-        agace:   'theme/personnages/rayn/agace.svg',
-        emu:     'theme/personnages/rayn/emu.svg'
+        neutre:  'theme/personnages/rayn/neutre.png',
+        rire:    'theme/personnages/rayn/rire.png',
+        surpris: 'theme/personnages/rayn/surpris.png',
+        timide:  'theme/personnages/rayn/timide.png',
+        agace:   'theme/personnages/rayn/agace.png',
+        emu:     'theme/personnages/rayn/emu.png'
       }
     },
     vega: {
