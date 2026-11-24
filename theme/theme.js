@@ -93,9 +93,9 @@ window.THEME = {
      Garde le sujet important vers le centre : sur téléphone, les côtés sont coupés. */
   decors: {
     ville:          'theme/decors/ville.svg',          // écran titre
-    salon:          'theme/decors/salon.svg',          // la soirée, de nuit
-    salon_jour:     'theme/decors/salon-jour.svg',     // le lendemain
-    cuisine:        'theme/decors/cuisine.svg',
+    salon:          'theme/decors/salon.png',          // la soirée, de nuit
+    salon_jour:     'theme/decors/salon-jour.png',     // le lendemain
+    cuisine:        'theme/decors/cuisine.png',
     entree:         'theme/decors/entree.svg',
     escalier:       'theme/decors/escalier.svg',
     escalier_orage: 'theme/decors/escalier-orage.svg', // le souvenir de juillet
