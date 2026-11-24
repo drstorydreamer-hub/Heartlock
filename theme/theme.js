@@ -96,10 +96,10 @@ window.THEME = {
     salon:          'theme/decors/salon.png',          // la soirée, de nuit
     salon_jour:     'theme/decors/salon-jour.png',     // le lendemain
     cuisine:        'theme/decors/cuisine.png',
-    entree:         'theme/decors/entree.svg',
+    entree:         'theme/decors/entree.png',
     escalier:       'theme/decors/escalier.svg',
     escalier_orage: 'theme/decors/escalier-orage.svg', // le souvenir de juillet
-    magasin:        'theme/decors/magasin.svg'
+    magasin:        'theme/decors/magasin.png'
   },
 
   /* ---------- Pluie animée ---------- */
